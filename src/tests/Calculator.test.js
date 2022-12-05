@@ -99,8 +99,6 @@ describe('Calculator', () => {
 
   it('should clear the running total without affecting the calculation', () => {
     const runningTotal = container.getByTestId('running-total');
-    const buttonClear = container.getByTestId('clear');
-    fireEvent.click(buttonClear);
     const button3 = container.getByTestId('number3');
     fireEvent.click(button3);
     const buttonMultiply = container.getByTestId('operator-multiply');
@@ -109,7 +107,14 @@ describe('Calculator', () => {
     fireEvent.click(button5);
     const buttonEquals = container.getByTestId('operator-equals');
     fireEvent.click(buttonEquals);
-    expect(runningTotal.textContent).toEqual('15');
+    const buttonClear = container.getByTestId('clear');
+    fireEvent.click(buttonClear);
+    const buttonAdd = container.getByTestId('operator-add');
+    fireEvent.click(buttonAdd);
+    const button2 = container.getByTestId('number2');
+    fireEvent.click(button2);
+    fireEvent.click(buttonEquals);
+    expect(runningTotal.textContent).toEqual('17');
   })
 
 })
