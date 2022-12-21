@@ -1,6 +1,6 @@
 describe("Calculator", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3002");
+    cy.visit("http://localhost:3000");
   })
 
   it('should have working number buttons', () => {
